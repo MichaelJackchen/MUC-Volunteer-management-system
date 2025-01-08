@@ -1,5 +1,5 @@
 # MUC-Volunteer-management-system
-![vicon](./vicon.jpg "icon" =600x600)
+![vicon](./vicon.jpg "icon"){:height="50%" width="50%"}
 ---
 - src文件夹为项目完整代码，
 - 其中connect_database封装了用户和底层数据库的连接操作和SQL语句	
