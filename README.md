@@ -1,5 +1,19 @@
 # MUC-Volunteer-management-system
 ![vicon](./vicon.jpg "icon")
+##### how to run or debug?
+###### src\window\login.java
+```
+public static void main(String args[]) throws SQLException, ClassNotFoundException {
+    	//登录界面输入账户和密码
+        login lg = new login();
+        //连接数据库与数据库内已有账户密码比对，根据身份进入不同界面
+        ld = new login_db();
+        lg.loginButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            ....
+            ....
+```
 ---
 - src文件夹为项目完整代码，
 - 其中connect_database封装了用户和底层数据库的连接操作和SQL语句	
