@@ -9,27 +9,27 @@ import java.sql.*;
 import javax.swing.*;
 
 /**
- * Ö¾Ô¸¹ÜÀíÏµÍ³µÇÂ¼½çÃæ
+ * å¿—æ„¿ç®¡ç†ç³»ç»Ÿç™»å½•ç•Œé¢
  */
 public class login extends JFrame{
     private static login_db ld;
-    // ´´½¨ JFrame ÊµÀı
-    JFrame frame = new JFrame("Ãñ´óÖ¾Ô¸Õß¹ÜÀíÏµÍ³");
+    // åˆ›å»º JFrame å®ä¾‹
+    JFrame frame = new JFrame("æ°‘å¤§å¿—æ„¿è€…ç®¡ç†ç³»ç»Ÿ");
     JPanel panel = new JPanel();
     JTextField userText = new JTextField(20);
     JPasswordField passwordText = new JPasswordField(20);
     JButton loginButton = new JButton("login");
-    final JComboBox vtBox = new JComboBox();        //ÉèÖÃÏÂÀ­²Ëµ¥
+    final JComboBox vtBox = new JComboBox();        //è®¾ç½®ä¸‹æ‹‰èœå•
     Icon icon;
     public login() {
         frame.setSize(800, 700);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
    
-        // Ìí¼ÓÃæ°å
+        // æ·»åŠ é¢æ¿
         frame.add(panel);
 
         placeComponents(panel);
-        //´°¿ÚÏÔÊ¾ÔÚÆÁÄ»ÖĞÑë
+        //çª—å£æ˜¾ç¤ºåœ¨å±å¹•ä¸­å¤®
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
@@ -37,38 +37,38 @@ public class login extends JFrame{
 
 
         panel.setLayout(new FlowLayout(FlowLayout.CENTER,20,10));
-        Font fbutton = new Font("ËÎÌå", 1, 20);
-        String[] vtName = {"Ö¾Ô¸Õß", "¸ºÔğÈË", "¹ÜÀíÔ±"};
-        icon=new ImageIcon("D:\\Ñ§Ñ§Ñ§\\´óÈı\\Êı¾İ¿âÔ­Àí¿Î³ÌÉè¼Æ\\19011469Âí¼Ó³½Êı¾İ¿âÔ­Àí¿Î³ÌÉè¼Æ\\code\\vicon.jpg");
+        Font fbutton = new Font("å®‹ä½“", 1, 20);
+        String[] vtName = {"å¿—æ„¿è€…", "è´Ÿè´£äºº", "ç®¡ç†å‘˜"};
+        icon=new ImageIcon("vicon.jpg");
         JLabel I = new JLabel();
         I.setIcon(icon);
         I.setBounds(10,10,200,50);
         panel.add(I,new Integer(Integer.MIN_VALUE));
-        vtBox.setFont(fbutton);                    //ÏÂÀ­²Ëµ¥ÉèÖÃ×ÖÌå
-        vtBox.setModel(new DefaultComboBoxModel(vtName));      //Ë¢ĞÂÏÂÀ­²Ëµ¥µÄÊı¾İ
+        vtBox.setFont(fbutton);                    //ä¸‹æ‹‰èœå•è®¾ç½®å­—ä½“
+        vtBox.setModel(new DefaultComboBoxModel(vtName));      //åˆ·æ–°ä¸‹æ‹‰èœå•çš„æ•°æ®
         panel.add(vtBox);
         JLabel userLabel = new JLabel("User:");
         userLabel.setBounds(10,20,80,25);
         panel.add(userLabel);
 
         /* 
-         * ´´½¨ÎÄ±¾ÓòÓÃÓÚÓÃ»§ÊäÈë
+         * åˆ›å»ºæ–‡æœ¬åŸŸç”¨äºç”¨æˆ·è¾“å…¥
          */
         userText.setBounds(100,20,165,25);
         panel.add(userText);
-        // ÊäÈëÃÜÂëµÄÎÄ±¾Óò
+        // è¾“å…¥å¯†ç çš„æ–‡æœ¬åŸŸ
         JLabel passwordLabel = new JLabel("Password:");
         passwordLabel.setBounds(10,50,80,25);
         panel.add(passwordLabel);
 
         /* 
-         *Õâ¸öÀàËÆÓÃÓÚÊäÈëµÄÎÄ±¾Óò
-         * µ«ÊÇÊäÈëµÄĞÅÏ¢»áÒÔµãºÅ´úÌæ£¬ÓÃÓÚ°üº¬ÃÜÂëµÄ°²È«ĞÔ
+         *è¿™ä¸ªç±»ä¼¼ç”¨äºè¾“å…¥çš„æ–‡æœ¬åŸŸ
+         * ä½†æ˜¯è¾“å…¥çš„ä¿¡æ¯ä¼šä»¥ç‚¹å·ä»£æ›¿ï¼Œç”¨äºåŒ…å«å¯†ç çš„å®‰å…¨æ€§
          */
         passwordText.setBounds(100,50,165,25);
         panel.add(passwordText);
 
-        // ´´½¨µÇÂ¼°´Å¥
+        // åˆ›å»ºç™»å½•æŒ‰é’®
         loginButton.setBounds(10, 80, 80, 25);
         loginButton.setFont(fbutton);
         panel.add(loginButton);
@@ -81,10 +81,10 @@ public class login extends JFrame{
     {
         String tableName = new String("");
         String userStatus = vtBox.getSelectedItem().toString();
-        if(userStatus.equals("Ö¾Ô¸Õß")){
+        if(userStatus.equals("å¿—æ„¿è€…")){
             tableName = "volunteers";
         }
-        else if(userStatus.equals("¸ºÔğÈË")){
+        else if(userStatus.equals("è´Ÿè´£äºº")){
             tableName = "manager";
         }
         else
@@ -123,21 +123,21 @@ public class login extends JFrame{
 
 
     public static void main(String args[]) throws SQLException, ClassNotFoundException {
-    	//µÇÂ¼½çÃæÊäÈëÕË»§ºÍÃÜÂë
+    	//ç™»å½•ç•Œé¢è¾“å…¥è´¦æˆ·å’Œå¯†ç 
         login lg = new login();
-        //Á¬½ÓÊı¾İ¿âÓëÊı¾İ¿âÄÚÒÑÓĞÕË»§ÃÜÂë±È¶Ô£¬¸ù¾İÉí·İ½øÈë²»Í¬½çÃæ
+        //è¿æ¥æ•°æ®åº“ä¸æ•°æ®åº“å†…å·²æœ‰è´¦æˆ·å¯†ç æ¯”å¯¹ï¼Œæ ¹æ®èº«ä»½è¿›å…¥ä¸åŒç•Œé¢
         ld = new login_db();
         lg.loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //Îªbutton´´½¨¼àÌı£¬¸ù¾İÊı¾İ¿âµÄÕË»§ÃÜÂëÑéÖ¤ÓÃ»§
+                //ä¸ºbuttonåˆ›å»ºç›‘å¬ï¼Œæ ¹æ®æ•°æ®åº“çš„è´¦æˆ·å¯†ç éªŒè¯ç”¨æˆ·
                 String vtType=lg.vtBox.getSelectedItem().toString();
-                String usertxt = lg.userText.getText().trim();      //Ö¾Ô¸Õß¡¢¸ºÔğÈËµÄÑ§ºÅ£¬¹ÜÀíÔ±µÄÕËºÅ
+                String usertxt = lg.userText.getText().trim();      //å¿—æ„¿è€…ã€è´Ÿè´£äººçš„å­¦å·ï¼Œç®¡ç†å‘˜çš„è´¦å·
                 char pw[] = lg.passwordText.getPassword();
                 try {
                     String userpassword = lg.searchPassword(usertxt);
                     if(userpassword == null){
-                        JOptionPane.showMessageDialog(lg.panel, "ÓÃ»§Ãû»òÃÜÂë´íÎó","ÌáÊ¾", 1);
+                        JOptionPane.showMessageDialog(lg.panel, "ç”¨æˆ·åæˆ–å¯†ç é”™è¯¯","æç¤º", 1);
                         return;
                     }
                     else {
@@ -145,20 +145,20 @@ public class login extends JFrame{
                         for(int i=0;i<pw.length;i++){
                             ptemp += pw[i];
                         }
-                        if(userpassword.equals(ptemp) && vtType.equals("Ö¾Ô¸Õß")){
+                        if(userpassword.equals(ptemp) && vtType.equals("å¿—æ„¿è€…")){
                             lg.frame.setVisible(false);
                             new volunteer(usertxt,lg.frame);
                         }
-                        else if(userpassword.equals(ptemp) && vtType.equals("¸ºÔğÈË")){
+                        else if(userpassword.equals(ptemp) && vtType.equals("è´Ÿè´£äºº")){
                             lg.frame.setVisible(false);
                             new manager(usertxt,lg.frame);
                         }
-                        else if(userpassword.equals(ptemp) && vtType.equals("¹ÜÀíÔ±")){
+                        else if(userpassword.equals(ptemp) && vtType.equals("ç®¡ç†å‘˜")){
                             lg.frame.setVisible(false);
                             new admin(lg.frame);
                         }
                         else {
-                            JOptionPane.showMessageDialog(lg.panel, "ÓÃ»§Ãû»òÃÜÂë´íÎó","ÌáÊ¾", 1);
+                            JOptionPane.showMessageDialog(lg.panel, "ç”¨æˆ·åæˆ–å¯†ç é”™è¯¯","æç¤º", 1);
                             return;
                         }
                     }
